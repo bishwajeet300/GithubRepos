@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_repo"
+    app:startDestination="@id/repositoryListFragment">
+    <fragment
+        android:id="@+id/repositoryListFragment"
+        android:name="com.bishwajeet.githubrepos.view.repo.fragmentRepositoryList.RepositoryListFragment"
+        android:label="Repositories"
+        tools:layout="@layout/fragment_repository_list" >
+        <action
+            android:id="@+id/action_repositoryListFragment_to_repositoryDetailFragment"
+            app:destination="@id/repositoryDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/repositoryDetailFragment"
+        android:name="com.bishwajeet.githubrepos.view.repo.fragmentRepositoryDetail.RepositoryDetailFragment"
+        android:label="Repository Detail"
+        tools:layout="@layout/fragment_repository_detail" >
+        <action
+            android:id="@+id/action_repositoryDetailFragment_to_repositoryListFragment"
+            app:destination="@id/repositoryListFragment" />
+        <argument
+            android:name="repository"
+            app:argType="com.bishwajeet.githubrepos.model.GitHubRepository" />
+    </fragment>
+</navigation>
